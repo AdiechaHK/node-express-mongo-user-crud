@@ -1,0 +1,55 @@
+<div class="max-w-sm rounded overflow-hidden shadow-lg mx-auto mt-10 bg-white">
+  <form
+    action="{{#if user}}/users/update/{{user._id}}{{else}}/users{{/if}}"
+    method="{{#if user}}put{{else}}post{{/if}}">
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2 border-b  border-blue-700 pb-2">User form</div>
+      <div class="mt-3">
+        {{#if err.username.error}}<span class="float-right text-sm text-red-700 font-normal">{{err.username.error}}</span>{{/if}}
+        <label class="block">Username</label>
+        <input
+          type="text"
+          class="border-2 border-gray-400 w-full p-2 rounded hover:border-blue-700 active:border-blue-700 focus:border-blue-700 outline-none"
+          placeholder="Username"
+          name="username"
+          value="{{#if user}}{{user.username}}{{else}}{{err.username.value}}{{/if}}">
+      </div>
+      <div class="mt-3">
+        {{#if err.email.error}}<span class="float-right text-sm text-red-700 font-normal">{{err.email.error}}</span>{{/if}}
+        <label class="block">Email</label>
+        <input
+          type="text"
+          class="border-2 border-gray-400 w-full p-2 rounded hover:border-blue-700 active:border-blue-700 focus:border-blue-700 outline-none"
+          placeholder="Email"
+          name="email"
+          value="{{#if user}}{{user.email}}{{else}}{{err.email.value}}{{/if}}">
+      </div>
+      <div class="mt-3">
+        {{#if err.mobile.error}}<span class="float-right text-sm text-red-700 font-normal">{{err.mobile.error}}</span>{{/if}}
+        <label class="block">Mobile</label>
+        <input
+          type="text"
+          class="border-2 border-gray-400 w-full p-2 rounded hover:border-blue-700 active:border-blue-700 focus:border-blue-700 outline-none"
+          placeholder="Mobile"
+          name="mobile"
+          value="{{#if user}}{{user.mobile}}{{else}}{{err.mobile.value}}{{/if}}">
+      </div>
+      <div class="mt-3">
+        {{#if err.city.error}}<span class="float-right text-sm text-red-700 font-normal">{{err.city.error}}</span>{{/if}}
+        <label class="block">City</label>
+        <input
+          type="text"
+          class="border-2 border-gray-400 w-full p-2 rounded hover:border-blue-700 active:border-blue-700 focus:border-blue-700 outline-none"
+          placeholder="City"
+          name="city"
+          value="{{#if user}}{{user.city}}{{else}}{{err.city.value}}{{/if}}">
+      </div>
+      <div class="mt-3">
+        <button class="bg-blue-700 border-2 font-normal border-blue-700 inline-block px-5 py-2 rounded-md duration-200 mt-4 text-gray-200 font-normal block hover:shadow-xl hover:bg-white hover:text-blue-700" type="submit"> Save </button>
+        <a class="float-right font-normal bg-transparent border-transparent border-2 hover:border-gray-400 inline-block px-5 py-2 rounded-md duration-200 mt-4 text-gray-400 font-normal block hover:shadow-xl hover:bg-white hover:bg-gray-100 hover:text-gray-500" href="/users">Back</a>
+      </div>
+    </div>
+  </form>
+</div>
+
+

@@ -1,0 +1,37 @@
+
+<div class="container mx-auto pt-5">
+
+<a href="/users/create"
+  class="float-right bg-blue-700 border-2 border-blue-700 inline-block px-5 py-2 rounded-md duration-200 mt-4 text-gray-200 font-normal block hover:shadow-xl hover:bg-white hover:text-blue-700"
+>Create new</a>
+<h1 class="text-3xl md:text-5xl mb-5">Users list</h1>
+
+<table class="w-full border-collapse border border-green-800 bg-green-200 mt-6">
+  <thead>
+    <tr>
+      <th class="bg-green-700 text-gray-200 p-2 text-left">Username</th>
+      <th class="bg-green-700 text-gray-200 p-2 text-left">Email</th>
+      <th class="bg-green-700 text-gray-200 p-2 text-left">Mobile</th>
+      <th class="bg-green-700 text-gray-200 p-2 text-left">City</th>
+      <th class="bg-green-700 text-gray-200 p-2 text-left">Actions</th>
+    </tr>
+  </thead>
+  {{#each docs}}
+  <tbody>
+    <tr class="hover:bg-green-400 duration-200">
+      <td class="border border-green-800 p-2 text-left">{{this.username}}</td>
+      <td class="border border-green-800 p-2 text-left">{{this.email}}</td>
+      <td class="border border-green-800 p-2 text-left">{{this.mobile}}</td>
+      <td class="border border-green-800 p-2 text-left">{{this.city}}</td>
+      <td class="border border-green-800 p-2 text-left">
+        <form action="/users/delete/{{this._id}}" method="post" class="flex gap-2">
+          <a class="duration-200 rounded px-2 hover:text-gray-200  font-normal hover:bg-blue-700" href="/users/edit/{{this._id}}">Edit</a>
+          <button class="duration-200 rounded px-2 hover:text-gray-200 font-normal hover:bg-red-700" type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+  </tbody>
+  {{/each}}
+</table>
+
+</div>
